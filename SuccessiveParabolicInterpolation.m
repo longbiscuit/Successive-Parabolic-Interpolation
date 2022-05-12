@@ -102,10 +102,13 @@ for k=1:20
             [maxfc,maxfcI]=sort(fc);%升序
             xc(maxfcI(end))=xnew;
             fc(maxfcI(end))=ynew;% the biggest is instead
-            xbest=xnew;
-            ybest=ynew;
+            % xbest=xnew;
+            % ybest=ynew;
         end
-        
+        % 避免xbest和ybest无赋值导致的错误
+        [maxfc,maxfcI]=sort(fc);%升序
+        xbest=xc(maxfcI(1));
+        ybest=fc(maxfcI(1));
     end
     %     [xc,xcI]=sort(xc);
     %     fc=fc(xcI);
